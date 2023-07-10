@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-from functools import cache
-import re
 
 trees = []
 max_x = 0  # use as in range(0, max_x)

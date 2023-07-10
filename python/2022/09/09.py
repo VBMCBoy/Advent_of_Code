@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-from functools import cache
-import re
 from typing import Tuple
 
 with open('input') as inp:

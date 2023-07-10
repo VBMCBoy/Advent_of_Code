@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 from copy import deepcopy
-from functools import cache
-import re
-import cProfile
 from typing import Tuple
 from math import inf
 

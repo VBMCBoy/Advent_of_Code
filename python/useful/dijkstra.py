@@ -1,7 +1,5 @@
-from typing import Any, Dict, Iterable, List, Set, Tuple
+from typing import Any, Dict, Iterable, List
 from math import inf
-from copy import deepcopy
-from functools import cache
 from heapq import heappush, heappop, heapify
 
 
@@ -117,7 +115,6 @@ class DijkstraSolver():
                 if current == None or current not in prev.keys():
                     return None
                 else:
-                    assert current is not None
                     ret.insert(0, prev[current])
                 current = prev[current]
             return ret

@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-from functools import cache, cmp_to_key
-import re
-import cProfile
+from functools import cmp_to_key
 from enum import Enum
 import ast
 

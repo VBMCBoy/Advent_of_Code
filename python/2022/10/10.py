@@ -1,40 +1,41 @@
 #!/usr/bin/env python3
-from functools import cache
-import re
+
+from typing import Tuple
+
 
 X = 1
 cycle = 0
-o = 0
+out1 = 0
 pixels = [' ']*40*6
 pixel_position = 0
 
-def evaluate(o, pixel_position):
+def evaluate(out1: int, pixel_position: int) -> Tuple[int, int]:
     if cycle == 20 or (cycle-20)%40 == 0:
         # print(f'Cycle {cycle}: X={X}')
-        o += X*cycle
+        out1 += X*cycle
     if X in range((pixel_position%40)-1, (pixel_position%40)+2):
         pixels[pixel_position] = '󰝤'  # requires nerd font, otherwise use '#' or whatever
-    return o, pixel_position+1
+    return out1, pixel_position+1
 
 
 with open('input') as inp:
-    o = 0
+    out1 = 0
     for line in inp.readlines():
         line = line.strip()
         if line == '':
             continue
         if line == 'noop':
             cycle += 1
-            o, pixel_position = evaluate(o, pixel_position)
+            out1, pixel_position = evaluate(out1, pixel_position)
         else:
             value = int(line.split(' ')[-1])
             cycle += 1
-            o, pixel_position = evaluate(o, pixel_position)
+            out1, pixel_position = evaluate(out1, pixel_position)
             cycle += 1
-            o, pixel_position = evaluate(o, pixel_position)
+            out1, pixel_position = evaluate(out1, pixel_position)
             X += value
 
-    print('Part 1:', o)
+    print('Part 1:', out1)
     print('Part 2:')
     print(''.join(pixels[:40]))
     print(''.join(pixels[40:80]))

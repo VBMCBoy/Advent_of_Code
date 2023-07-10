@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-from functools import cache
-import re
 
 class Element():
     def get_size(self) -> int:
